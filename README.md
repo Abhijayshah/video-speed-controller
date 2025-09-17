@@ -1,4 +1,6 @@
-# The science of accelerated playback
+# 🚀 Video Speed Controller
+
+> **The ultimate browser extension for controlling HTML5 video playback speed with style and accessibility**
 
 | Chrome Extension                                                       | Downloads                                                                        | GitHub Release                                                 |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------------------------------------------------|
@@ -13,7 +15,18 @@
 [chrome-web-store-link]: https://chrome.google.com/webstore/detail/poe2-trade-butler/nffaoalbilbmmfgbnbgppjihopabppdk
 [github-release-link]: https://github.com/igrigorik/videospeed/releases
 
-**TL;DR: faster playback translates to better engagement and retention.**
+## ✨ What's New in v0.9.5
+
+- 🎨 **Modern UI Design** - Completely redesigned interface with glassmorphism effects and smooth animations
+- 🌙 **Dark Mode Support** - Automatic dark/light mode switching based on system preferences
+- ⚡ **Enhanced Performance** - Optimized for better performance and reduced memory usage
+- ♿ **Accessibility First** - Full screen reader support, keyboard navigation, and high contrast mode
+- 📱 **Mobile-Friendly** - Responsive design that works great on all devices
+- 🎯 **Visual Feedback** - Real-time notifications and keyboard shortcut indicators
+- 🎛️ **Speed Presets** - Quick access buttons for common playback speeds
+- 📊 **Speed Indicator** - Visual progress bar showing current playback speed
+
+**TL;DR: Faster playback translates to better engagement and retention.**
 
 The average adult reads prose text at
 [250 to 300 words per minute](http://www.paperbecause.com/PIOP/files/f7/f7bb6bc5-2c4a-466f-9ae7-b483a2c0dca4.pdf)
@@ -42,23 +55,50 @@ last point to listen to it a few more times.
 
 ![Player](https://cloud.githubusercontent.com/assets/2400185/24076745/5723e6ae-0c41-11e7-820c-1d8e814a2888.png)
 
-### _[Install Chrome Extension](https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk)_
+## 🎯 Key Features
 
-\*\* Once the extension is installed simply navigate to any page that offers
-HTML5 video ([example](http://www.youtube.com/watch?v=E9FxNzv1Tr8)), and you'll
-see a speed indicator in top left corner. Hover over the indicator to reveal the
-controls to accelerate, slowdown, and quickly rewind or advance the video. Or,
-even better, simply use your keyboard:
+### 🎮 **Intuitive Controls**
+- **Modern Popup Interface** - Sleek popup with current speed display and visual indicators
+- **Speed Presets** - One-click access to common speeds (0.5x, 0.75x, 1x, 1.25x, 1.5x, 1.75x, 2x, 2.5x)
+- **Fine-Grained Control** - Precise speed adjustments with customizable increments
+- **Visual Feedback** - Real-time notifications and smooth animations for all interactions
 
-- **S** - decrease playback speed.
-- **D** - increase playback speed.
-- **R** - reset playback speed to 1.0x.
-- **Z** - rewind video by 10 seconds.
-- **X** - advance video by 10 seconds.
-- **G** - toggle between current and user configurable preferred speed.
-- **V** - show/hide the controller.
-- **M** - set a marker at the current playback position.
-- **J** - jump back to the previously set marker.
+### ⌨️ **Powerful Keyboard Shortcuts**
+- **Smart Detection** - Shortcuts only work when you're not typing in input fields
+- **Visual Feedback** - On-screen indicators show which shortcut was pressed
+- **Customizable** - Remap any shortcut to your preference in settings
+
+### ♿ **Accessibility Excellence**
+- **Screen Reader Support** - Full ARIA labels and live announcements
+- **Keyboard Navigation** - Navigate the controller using arrow keys
+- **High Contrast Mode** - Automatic detection and enhanced visibility
+- **Reduced Motion** - Respects user's motion preferences
+
+### 🎨 **Modern Design**
+- **Glassmorphism UI** - Beautiful frosted glass effects with backdrop blur
+- **Dark Mode** - Automatic switching based on system preferences
+- **Responsive Design** - Works perfectly on all screen sizes
+- **Smooth Animations** - Buttery smooth transitions and micro-interactions
+
+## 🚀 Quick Start
+
+### _[📥 Install Chrome Extension](https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk)_
+
+Once installed, navigate to any page with HTML5 video ([try this example](http://www.youtube.com/watch?v=E9FxNzv1Tr8)). You'll see a modern speed controller in the top-left corner. Click the extension icon for the full control panel, or use these keyboard shortcuts:
+
+## ⌨️ Keyboard Shortcuts
+
+| Key | Action | Description |
+|-----|--------|-------------|
+| <kbd>S</kbd> | **Decrease Speed** | Slow down playback (customizable increment) |
+| <kbd>D</kbd> | **Increase Speed** | Speed up playback (customizable increment) |
+| <kbd>R</kbd> | **Reset Speed** | Return to 1.0x normal speed |
+| <kbd>Z</kbd> | **Rewind** | Go back 10 seconds |
+| <kbd>X</kbd> | **Fast Forward** | Skip ahead 10 seconds |
+| <kbd>G</kbd> | **Toggle Preferred** | Switch between current and preferred speed |
+| <kbd>V</kbd> | **Toggle Controller** | Show/hide the speed controller |
+| <kbd>M</kbd> | **Set Marker** | Mark current position for quick return |
+| <kbd>J</kbd> | **Jump to Marker** | Return to previously marked position |
 
 You can customize and reassign the default shortcut keys in the extensions
 settings page as well as add additional shortcut keys to match your
@@ -74,27 +114,53 @@ listens both for lower and upper case values (i.e. you can use
 key. This is not a perfect solution since some sites may listen to both, but it works
 most of the time.
 
-### FAQ
+## 🤔 Frequently Asked Questions
 
-**The video controls are not showing up?** This extension is only compatible
-with HTML5 video. If you don't see the controls showing up, chances are you are
-viewing a Flash video. If you want to confirm, try right-clicking on the video
-and inspect the menu: if it mentions flash, then that's the issue. That said,
-most sites will fallback to HTML5 if they detect that Flash it not available.
-You can try manually disabling Flash plugin in Chrome:
+### **🎥 The video controls are not showing up?**
 
-- In a new tab, navigate to `chrome://settings/content/flash`
-- Disable "Allow sites to run Flash"
-- Restart your browser and try playing your video again
+This extension only works with **HTML5 video**. If you don't see the controls:
 
-**The speed controls are not showing up for local videos?** To enable playback
-of local media (e.g. File > Open File), you need to grant additional permissions
-to the extension.
+1. **Check if it's HTML5**: Right-click on the video. If you see Flash-related options, that's the issue.
+2. **Most modern sites use HTML5** by default, but some older content might still use Flash.
+3. **For Flash videos**: The extension cannot control Flash content due to browser security restrictions.
 
-- In a new tab, navigate to `chrome://extensions`
-- Find "Video Speed Controller" extension in the list and enable "Allow access
-  to file URLs"
-- Open a new tab and try opening a local file; the controls should show up.
+### **📁 Controls not working with local video files?**
+
+To enable the extension for local files (File > Open File):
+
+1. Navigate to `chrome://extensions`
+2. Find "Video Speed Controller" in the list
+3. Click "Details" and enable **"Allow access to file URLs"**
+4. Refresh the page with your local video
+
+### **⌨️ Keyboard shortcuts not working?**
+
+- **Check focus**: Make sure you're not typing in a text field or input box
+- **Try clicking the video first**: Some sites require the video to be focused
+- **Check for conflicts**: Other extensions might be using the same shortcuts
+- **Customize shortcuts**: Go to extension settings to remap conflicting keys
+
+### **🎨 The controller looks different or broken?**
+
+- **Clear browser cache**: Old cached styles might interfere
+- **Check for site-specific CSS**: Some sites have custom styles that might conflict
+- **Try incognito mode**: This helps identify if other extensions are interfering
+- **Update the extension**: Make sure you have the latest version
+
+### **🌙 Dark mode not working?**
+
+The extension automatically detects your system's dark/light mode preference. If it's not working:
+
+- **Check system settings**: Ensure your OS is set to dark mode
+- **Browser settings**: Some browsers override system preferences
+- **Force refresh**: Try refreshing the page after changing system theme
+
+### **♿ Accessibility features not working?**
+
+- **Screen reader**: Make sure your screen reader is running and updated
+- **Keyboard navigation**: Use Tab to focus the controller, then arrow keys to navigate
+- **High contrast**: The extension automatically detects Windows high contrast mode
+- **Report issues**: Contact us if you encounter accessibility barriers
 
 ### License
 

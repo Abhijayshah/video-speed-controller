@@ -1,3 +1,32 @@
+/* Modern CSS Variables for consistent theming */
+:root {
+  --vsc-primary: #6366f1;
+  --vsc-primary-hover: #4f46e5;
+  --vsc-surface: rgba(255, 255, 255, 0.95);
+  --vsc-surface-dark: rgba(17, 24, 39, 0.95);
+  --vsc-text: #1f2937;
+  --vsc-text-dark: #f9fafb;
+  --vsc-text-secondary: #6b7280;
+  --vsc-text-secondary-dark: #9ca3af;
+  --vsc-border: rgba(229, 231, 235, 0.8);
+  --vsc-border-dark: rgba(75, 85, 99, 0.8);
+  --vsc-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --vsc-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --vsc-backdrop-blur: blur(12px);
+  --vsc-border-radius: 12px;
+  --vsc-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --vsc-surface: var(--vsc-surface-dark);
+    --vsc-text: var(--vsc-text-dark);
+    --vsc-text-secondary: var(--vsc-text-secondary-dark);
+    --vsc-border: var(--vsc-border-dark);
+  }
+}
+
 vsc-controller {
   /* Default visible state */
   visibility: visible;
@@ -9,6 +38,21 @@ vsc-controller {
   white-space: normal;
   /* Disables text selection when the user is dragging the controller around */
   user-select: none;
+  
+  /* Modern styling */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Enhanced positioning and layering */
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  pointer-events: auto !important;
+  
+  /* Smooth transitions */
+  transition: var(--vsc-transition);
 }
 
 /* Origin specific overrides */
@@ -115,4 +159,162 @@ section[role="tabpanel"][aria-label="Video Player"] {
   position: relative !important;
   top: 0px !important;
   left: 35px !important;
+}
+
+/* Modern VSC Controller Styling */
+.vsc-controller {
+  background: var(--vsc-surface);
+  backdrop-filter: var(--vsc-backdrop-blur);
+  -webkit-backdrop-filter: var(--vsc-backdrop-blur);
+  border: 1px solid var(--vsc-border);
+  border-radius: var(--vsc-border-radius);
+  box-shadow: var(--vsc-shadow);
+  color: var(--vsc-text);
+  padding: 8px 12px;
+  min-width: 120px;
+  transition: var(--vsc-transition);
+  transform: translateZ(0); /* Hardware acceleration */
+}
+
+.vsc-controller:hover {
+  box-shadow: var(--vsc-shadow-lg);
+  transform: translateY(-2px) translateZ(0);
+}
+
+/* Speed display */
+.vsc-speed-display {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--vsc-primary);
+  text-align: center;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* Control buttons */
+.vsc-controls {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.vsc-btn {
+  background: transparent;
+  border: 1px solid var(--vsc-border);
+  border-radius: 6px;
+  color: var(--vsc-text-secondary);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 8px;
+  transition: var(--vsc-transition);
+  min-width: 28px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vsc-btn:hover {
+  background: var(--vsc-primary);
+  border-color: var(--vsc-primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.vsc-btn:active {
+  transform: scale(0.95);
+}
+
+/* Primary action button */
+.vsc-btn-primary {
+  background: var(--vsc-primary);
+  border-color: var(--vsc-primary);
+  color: white;
+}
+
+.vsc-btn-primary:hover {
+  background: var(--vsc-primary-hover);
+  border-color: var(--vsc-primary-hover);
+  transform: scale(1.05);
+}
+
+/* Keyboard shortcut indicators */
+.vsc-shortcut {
+  font-size: 10px;
+  opacity: 0.7;
+  margin-left: 2px;
+}
+
+/* Animation for speed changes */
+@keyframes vsc-speed-change {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.vsc-speed-display.changed {
+  animation: vsc-speed-change 0.3s ease-out;
+}
+
+/* Notification toast */
+.vsc-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--vsc-surface);
+  backdrop-filter: var(--vsc-backdrop-blur);
+  -webkit-backdrop-filter: var(--vsc-backdrop-blur);
+  border: 1px solid var(--vsc-border);
+  border-radius: var(--vsc-border-radius);
+  box-shadow: var(--vsc-shadow-lg);
+  color: var(--vsc-text);
+  padding: 12px 16px;
+  z-index: 2147483647;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 300px;
+}
+
+.vsc-notification.show {
+  transform: translateX(0);
+}
+
+.vsc-notification-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.vsc-notification-message {
+  font-size: 13px;
+  color: var(--vsc-text-secondary);
+}
+
+/* Accessibility improvements */
+.vsc-controller:focus-within {
+  outline: 2px solid var(--vsc-primary);
+  outline-offset: 2px;
+}
+
+.vsc-btn:focus-visible {
+  outline: 2px solid var(--vsc-primary);
+  outline-offset: 1px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .vsc-controller,
+  .vsc-btn,
+  .vsc-notification {
+    transition: none;
+  }
+  
+  .vsc-speed-display.changed {
+    animation: none;
+  }
+  
+  .vsc-controller:hover {
+    transform: none;
+  }
 }

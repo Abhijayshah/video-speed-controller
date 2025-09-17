@@ -9,16 +9,30 @@
 
 <body>
   <div class="popup-container">
-    <!-- Speed Control Section (now at top) -->
+    <!-- Current Speed Display -->
+    <div class="current-speed-section">
+      <div class="current-speed-label">Current Speed</div>
+      <div id="current-speed-display" class="current-speed-value">1.0x</div>
+      <div class="speed-indicator-bar">
+        <div id="speed-indicator" class="speed-indicator-fill"></div>
+      </div>
+    </div>
+
+    <!-- Speed Control Section -->
     <div class="speed-section">
       <!-- Fine Controls -->
       <div class="speed-controls">
-        <button id="speed-decrease" class="control-btn" data-delta="-0.1">
+        <button id="speed-decrease" class="control-btn" data-delta="-0.1" title="Decrease speed by 0.1x">
           <span>-0.1</span>
+          <small class="shortcut-hint">S</small>
         </button>
-        <button id="speed-reset" class="control-btn reset-btn">1.0</button>
-        <button id="speed-increase" class="control-btn" data-delta="0.1">
+        <button id="speed-reset" class="control-btn reset-btn" title="Reset to normal speed">
+          1.0
+          <small class="shortcut-hint">R</small>
+        </button>
+        <button id="speed-increase" class="control-btn" data-delta="0.1" title="Increase speed by 0.1x">
           <span>+0.1</span>
+          <small class="shortcut-hint">D</small>
         </button>
       </div>
 
@@ -36,6 +50,88 @@
         </div>
       </div>
     </div>
+
+    <!-- Analytics Section -->
+     <div class="analytics-section">
+       <button id="analytics-toggle" class="analytics-toggle">
+         <span>Usage Statistics</span>
+         <svg class="chevron" viewBox="0 0 24 24" width="16" height="16">
+           <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+         </svg>
+       </button>
+       <div id="analytics-content" class="analytics-content">
+         <div class="stats-grid">
+           <div class="stat-item">
+             <div class="stat-value" id="total-sessions">-</div>
+             <div class="stat-label">Sessions</div>
+           </div>
+           <div class="stat-item">
+             <div class="stat-value" id="avg-speed">-</div>
+             <div class="stat-label">Avg Speed</div>
+           </div>
+           <div class="stat-item">
+             <div class="stat-value" id="keyboard-usage">-</div>
+             <div class="stat-label">Keyboard Use</div>
+           </div>
+           <div class="stat-item">
+             <div class="stat-value" id="total-sites">-</div>
+             <div class="stat-label">Sites Used</div>
+           </div>
+         </div>
+         <div class="analytics-actions">
+           <button id="export-analytics" class="analytics-btn">
+             <svg viewBox="0 0 24 24" width="16" height="16">
+               <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+             </svg>
+             Export Data
+           </button>
+           <button id="clear-analytics" class="analytics-btn secondary">
+             <svg viewBox="0 0 24 24" width="16" height="16">
+               <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"/>
+             </svg>
+             Clear Data
+           </button>
+         </div>
+       </div>
+     </div>
+
+     <!-- Keyboard Shortcuts Section -->
+     <div class="shortcuts-section">
+       <button id="shortcuts-toggle" class="shortcuts-toggle">
+         <span>Keyboard Shortcuts</span>
+         <svg class="chevron" viewBox="0 0 24 24" width="16" height="16">
+           <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+         </svg>
+       </button>
+       <div id="shortcuts-content" class="shortcuts-content">
+         <div class="shortcut-grid">
+           <div class="shortcut-item">
+             <kbd>S</kbd>
+             <span>Decrease speed</span>
+           </div>
+           <div class="shortcut-item">
+             <kbd>D</kbd>
+             <span>Increase speed</span>
+           </div>
+           <div class="shortcut-item">
+             <kbd>R</kbd>
+             <span>Reset speed</span>
+           </div>
+           <div class="shortcut-item">
+             <kbd>Z</kbd>
+             <span>Rewind 10s</span>
+           </div>
+           <div class="shortcut-item">
+             <kbd>X</kbd>
+             <span>Forward 10s</span>
+           </div>
+           <div class="shortcut-item">
+             <kbd>V</kbd>
+             <span>Toggle controller</span>
+           </div>
+         </div>
+       </div>
+     </div>
 
     <!-- Footer with controls and status -->
     <div class="footer">
